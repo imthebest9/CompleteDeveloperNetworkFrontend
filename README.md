@@ -15,16 +15,16 @@ Welcome to the Complete Developer Network User Management System! This project d
 ## Technologies Used
 
 - Frontend: React.js, React Router, Tailwind CSS
-- Backend: ASP.NET Core, Entity Framework Core, MSSQL
+- Backend: ASP.NET Core, Entity Framework Core
 - Database: Microsoft SQL Server
-- Deployment: Hosted on Heroku
+- Deployment: Hosted on Vercel
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js and npm (for frontend)
-- .NET 5 SDK (for backend)
+- .NET 6 SDK (for backend)
 - Microsoft SQL Server (or SQL Server Express)
 - Visual Studio Code (or any preferred code editor)
 
