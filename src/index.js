@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AddUser from "./AddUser";
+import AddUser from "./add-user";
+import EditUserForm from "./edit-user";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +16,7 @@ root.render(
         <Route path="/">
           <Route index element={<App />} />
           <Route path="add-user" element={<AddUser />} />
+          <Route path="edit-user/:userId" element={<EditUserForm />} />
         </Route>
       </Routes>
     </BrowserRouter>

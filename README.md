@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Complete Developer Network - User Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Complete Developer Network User Management System! This project demonstrates the creation of a user directory with registration, editing, and deletion functionalities. Users can view a list of registered users, search for specific users, and perform CRUD (Create, Read, Update, Delete) operations.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- Technologies Used
+- Getting Started
+  - Prerequisites
+  - Installation
+- Usage
+- Features
+- Deployment
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Frontend: React.js, React Router, Tailwind CSS
+- Backend: ASP.NET Core, Entity Framework Core, MSSQL
+- Database: Microsoft SQL Server
+- Deployment: Hosted on Heroku
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js and npm (for frontend)
+- .NET 5 SDK (for backend)
+- Microsoft SQL Server (or SQL Server Express)
+- Visual Studio Code (or any preferred code editor)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```git
+git clone https://github.com/imthebest9/CompleteDeveloperNetworkFrontend.git
+git clone https://github.com/imthebest9/CompleteDeveloperNetworkBackend.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Frontend Setup:
 
-### `npm run eject`
+```git
+cd frontend
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Backend Setup:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Open the solution in your preferred code editor and configure the database connection in appsettings.json. Run the backend application using .NET CLI or your code editor.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Visit the application URL to view the user management system.
+- The homepage displays a list of registered users, along with search and pagination functionalities.
+- Click "Add User" to navigate to the registration page and fill in the user details.
+- Each user in the list has "Edit" and "Delete" buttons for modifying user data.
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- User registration with username, email, phone number, skillsets, and hobbies.
+- List of registered users with search and pagination.
+- Edit user details, including username, email, phone number, skillsets, and hobbies.
+- Delete users from the directory.
+- Responsive design with Tailwind CSS for a visually appealing interface.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployment
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Frontend: [Vercel page](https://complete-developer-network-frontend.vercel.app/)

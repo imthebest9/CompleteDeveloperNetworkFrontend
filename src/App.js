@@ -3,18 +3,22 @@ import { Link } from "react-router-dom";
 
 const App = () => {
   const [users, setUsers] = useState([]);
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [skillsets, setSkillsets] = useState("");
-  const [hobby, setHobby] = useState("");
 
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 10;
 
-  const handleDeleteUser = (userId) => {
+  const handleDeleteUser = async (id) => {
     // Logic to delete user
+    try {
+      await fetch(`/api/user/${id}`, {
+        method: "DELETE",
+      });
+      alert("User deleted successfully!");
+      getUsers();
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
   };
 
   const filteredUsers = users.filter((user) =>
@@ -35,45 +39,6 @@ const App = () => {
       setUsers(data);
     } catch (error) {
       console.error("Error fetching users:", error);
-    }
-  };
-
-  const addUser = async () => {
-    const newUser = {
-      username,
-      email,
-      phoneNumber,
-      skillsets,
-      hobby,
-    };
-    try {
-      await fetch("/api/user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newUser),
-      });
-      getUsers();
-      // Clear form fields after adding user
-      setUsername("");
-      setEmail("");
-      setPhoneNumber("");
-      setSkillsets("");
-      setHobby("");
-    } catch (error) {
-      console.error("Error adding user:", error);
-    }
-  };
-
-  const deleteUser = async (id) => {
-    try {
-      await fetch(`/api/user/${id}`, {
-        method: "DELETE",
-      });
-      getUsers();
-    } catch (error) {
-      console.error("Error deleting user:", error);
     }
   };
 
@@ -101,37 +66,41 @@ const App = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      <table className="table-auto w-full">
-        <thead>
-          <tr>
-            <th className="px-4 py-2">Username</th>
-            <th className="px-4 py-2">Email</th>
-            <th className="px-4 py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentUsers.map((user) => (
-            <tr key={user.id} className="bg-white rounded-lg shadow-md">
-              <td className="px-4 py-2">{user.username}</td>
-              <td className="px-4 py-2">{user.email}</td>
-              <td className="px-4 py-2">
-                <Link
-                  to={`/edit-user/${user.id}`}
-                  className="text-blue-500 hover:text-blue-600 mr-2"
-                >
-                  Edit
-                </Link>
-                <button
-                  className="text-red-500 hover:text-red-600"
-                  onClick={() => handleDeleteUser(user.id)}
-                >
-                  Delete
-                </button>
-              </td>
+      <div className="overflow-x-auto">
+        <table className="w-full border rounded-lg shadow-md">
+          <thead>
+            <tr>
+              <th className="px-4 py-2 border-4">Username</th>
+              <th className="px-4 py-2 border-4">Email</th>
+              <th className="px-4 py-2 border-4">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {currentUsers.map((user) => (
+              <tr key={user.id} className="bg-white rounded-lg shadow-md">
+                <td className="px-4 py-2 border">{user.username}</td>
+                <td className="px-4 py-2 border">{user.email}</td>
+                <td className="px-4 py-2 border flex justify-center">
+                  <div className="flex space-x-2">
+                    <Link
+                      to={`/edit-user/${user.id}`}
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded transition duration-300 ease-in-out"
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded transition duration-300 ease-in-out"
+                      onClick={() => handleDeleteUser(user.id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div className="mt-4 flex justify-center">
         {Array.from({
           length: Math.ceil(filteredUsers.length / usersPerPage),
