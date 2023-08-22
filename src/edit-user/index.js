@@ -96,6 +96,12 @@ const EditUserForm = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          {/* if email is not in correct format, display warning div */}
+          {!email.includes("@") && email.length !== 0 ? (
+            <div className="text-red-500 text-xs mt-1">
+              Email must be in correct format. (example@gmail.com)
+            </div>
+          ) : null}
         </div>
         <div className="mb-4">
           <label
@@ -111,6 +117,13 @@ const EditUserForm = () => {
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
+          {/* if phone number is not between 10 and 11 characters, display a warning div */}
+          {(phoneNumber.length < 10 || phoneNumber.length > 11) &&
+          phoneNumber.length !== 0 ? (
+            <div className="text-red-500 text-xs mt-1">
+              Phone number must be between 10 and 11 characters.
+            </div>
+          ) : null}
         </div>
         <div className="mb-4">
           <label

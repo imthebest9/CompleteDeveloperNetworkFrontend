@@ -72,6 +72,9 @@ const App = () => {
             <tr>
               <th className="px-4 py-2 border-4">Username</th>
               <th className="px-4 py-2 border-4">Email</th>
+              <th className="px-4 py-2 border-4">Phone Number</th>
+              <th className="px-4 py-2 border-4">Skillsets</th>
+              <th className="px-4 py-2 border-4">Hobby</th>
               <th className="px-4 py-2 border-4">Actions</th>
             </tr>
           </thead>
@@ -80,6 +83,9 @@ const App = () => {
               <tr key={user.id} className="bg-white rounded-lg shadow-md">
                 <td className="px-4 py-2 border">{user.username}</td>
                 <td className="px-4 py-2 border">{user.email}</td>
+                <td className="px-4 py-2 border">{user.phoneNumber}</td>
+                <td className="px-4 py-2 border">{user.skillsets}</td>
+                <td className="px-4 py-2 border">{user.hobby}</td>
                 <td className="px-4 py-2 border flex justify-center">
                   <div className="flex space-x-2">
                     <Link
